@@ -1,0 +1,2 @@
+# tamagotchi-telegrambot
+Tamagotchi telegrambot
