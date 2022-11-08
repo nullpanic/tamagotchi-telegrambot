@@ -27,12 +27,13 @@ jobs:
         java-version: '18'
         distribution: 'temurin'
         cache: maven
+
     - name: Set env TEST_TAMAGOTCHI_BOT_USERNAME
       run: echo "TEST_TAMAGOTCHI_BOT_USERNAME=${{ secrets.TEST_TAMAGOTCHI_BOT_USERNAME }}" >> $GITHUB_ENV
+
     - name: Set env TEST_TAMAGOTCHI_BOT_TOKEN
       run: echo "TEST_TAMAGOTCHI_BOT_TOKEN=${{ secrets.TEST_TAMAGOTCHI_BOT_TOKEN }}" >> $GITHUB_ENV
-    - name: Test
-      run: echo TEST_TAMAGOTCHI_BOT_TOKEN
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
