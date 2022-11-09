@@ -4,3 +4,7 @@
 
 * Added telegram bot
 * Added SpringBoot skeleton project
+
+## 0.2.0-SNAPSHOT
+
+* Implemented Command pattern for handling Telegram Bot commands
