@@ -1,5 +1,7 @@
 package dev.nullpanic.tamagotchitelegrambot.bot;
 
+import dev.nullpanic.tamagotchitelegrambot.command.CommandContainer;
+import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -7,14 +9,22 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.util.ArrayList;
+
 @Component
 public class TamagotchiTelegramBot extends TelegramLongPollingBot {
-
+    private static final String COMMAND_PREFIX ="/";
     @Value("${telegramBot.username}")
     private String username;
 
     @Value("${telegramBot.token}")
     private String token;
+
+    private final CommandContainer commandContainer;
+
+    public TamagotchiTelegramBot() {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    }
 
     @Override
     public String getBotUsername() {
@@ -29,18 +39,12 @@ public class TamagotchiTelegramBot extends TelegramLongPollingBot {
     @Override
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
-            Long chatId = update.getMessage().getChatId();
+            String message = update.getMessage().getText().trim();
+            //if (message.startsWith(COMMAND_PREFIX)) {
+                String commandIdentifier = message.split(" ")[0].toLowerCase();
 
-            SendMessage sendMessage = new SendMessage();
-            sendMessage.setChatId(chatId);
-            sendMessage.setText("Test message");
-
-            try {
-                execute(sendMessage);
-            } catch (TelegramApiException e) {
-                //todo add logging to the project
-                e.printStackTrace();
-            }
+                commandContainer.retrieveCommand(commandIdentifier).execute(update);
+            //}
         }
     }
 }
