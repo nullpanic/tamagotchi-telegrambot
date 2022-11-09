@@ -1,0 +1,10 @@
+version: '3.1'
+
+services:
+  tamagotchitelegrambot:
+    build:
+      context: .
+    environment:
+      - TEST_TAMAGOTCHI_BOT_USERNAME=${TEST_TAMAGOTCHI_BOT_USERNAME}
+      - TEST_TAMAGOTCHI_BOT_TOKEN=${TEST_TAMAGOTCHI_BOT_TOKEN}
+    restart: always
