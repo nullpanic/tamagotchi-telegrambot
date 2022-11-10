@@ -3,6 +3,7 @@ package dev.nullpanic.tamagotchitelegrambot.command;
 import dev.nullpanic.tamagotchitelegrambot.bot.TamagotchiTelegramBot;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
+import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -14,9 +15,12 @@ abstract class AbstractCommandTest {
 
     protected TamagotchiTelegramBot tamagotchiTelegramBot = Mockito.mock(TamagotchiTelegramBot.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(tamagotchiTelegramBot);
+    protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
 
     abstract String getCommandName();
+
     abstract String getCommandMessage();
+
     abstract Command getCommand();
 
     @Test

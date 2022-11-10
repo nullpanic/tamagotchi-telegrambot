@@ -2,18 +2,17 @@ package dev.nullpanic.tamagotchitelegrambot.bot;
 
 import dev.nullpanic.tamagotchitelegrambot.command.CommandContainer;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
+import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
-import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
-import java.util.ArrayList;
 
 @Component
 public class TamagotchiTelegramBot extends TelegramLongPollingBot {
-    private static final String COMMAND_PREFIX ="/";
+    private static final String COMMAND_PREFIX = "/";
     @Value("${telegramBot.username}")
     private String username;
 
@@ -22,8 +21,9 @@ public class TamagotchiTelegramBot extends TelegramLongPollingBot {
 
     private final CommandContainer commandContainer;
 
-    public TamagotchiTelegramBot() {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this));
+    @Autowired
+    public TamagotchiTelegramBot(TelegramUserService telegramUserService) {
+        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
     }
 
     @Override
@@ -40,11 +40,9 @@ public class TamagotchiTelegramBot extends TelegramLongPollingBot {
     public void onUpdateReceived(Update update) {
         if (update.hasMessage() && update.getMessage().hasText()) {
             String message = update.getMessage().getText().trim();
-            //if (message.startsWith(COMMAND_PREFIX)) {
-                String commandIdentifier = message.split(" ")[0].toLowerCase();
+            String commandIdentifier = message.split(" ")[0].toLowerCase();
 
-                commandContainer.retrieveCommand(commandIdentifier).execute(update);
-            //}
+            commandContainer.retrieveCommand(commandIdentifier).execute(update);
         }
     }
 }
