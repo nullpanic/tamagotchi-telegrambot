@@ -31,9 +31,12 @@ jobs:
 
       - name: Set env TEST_TAMAGOTCHI_BOT_USERNAME
         run: echo "TEST_TAMAGOTCHI_BOT_USERNAME=${{ secrets.TEST_TAMAGOTCHI_BOT_USERNAME }}" >> $GITHUB_ENV
-
       - name: Set env TEST_TAMAGOTCHI_BOT_TOKEN
         run: echo "TEST_TAMAGOTCHI_BOT_TOKEN=${{ secrets.TEST_TAMAGOTCHI_BOT_TOKEN }}" >> $GITHUB_ENV
+      - name: Set env DB_USER_LOCAL
+        run: echo "DB_USER_LOCAL=${{ secrets.DB_USER_LOCAL }}" >> $GITHUB_ENV
+      - name: Set env DB_PASSWORD_LOCAL
+        run: echo "DB_PASSWORD_LOCAL=${{ secrets.DB_PASSWORD_LOCAL }}" >> $GITHUB_ENV
 
       - name: Setup Postgres database
         uses: Daniel-Marynicz/postgresql-action@master
