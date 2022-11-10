@@ -42,9 +42,9 @@ jobs:
         uses: Daniel-Marynicz/postgresql-action@master
         with:
           postgres_image_tag: 12-alpine
-          app_user: ${{ secrets.DB_USER_LOCAL }}
-          app_user_password: ${{ secrets.DB_PASSWORD_LOCAL }}
-          app_db: tamagotchi_db
+          postgres_user: ${{ secrets.DB_USER_LOCAL }}
+          postgres_password: ${{ secrets.DB_PASSWORD_LOCAL }}
+          postgres_db: tamagotchi_db
 
       - name: Build with Maven
         run: mvn -B package --file pom.xml
