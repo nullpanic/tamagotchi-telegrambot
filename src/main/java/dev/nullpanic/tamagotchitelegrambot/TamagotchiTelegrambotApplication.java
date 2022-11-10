@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class TamagotchiTelegrambotApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(TamagotchiTelegrambotApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(TamagotchiTelegrambotApplication.class, args);
+    }
 
 }

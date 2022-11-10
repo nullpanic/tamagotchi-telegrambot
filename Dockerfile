@@ -2,5 +2,7 @@ FROM openjdk:18
 ARG JAR_FILE=target/*.jar
 ENV TEST_TAMAGOTCHI_BOT_USERNAME=${TEST_TAMAGOTCHI_BOT_USERNAME}
 ENV TEST_TAMAGOTCHI_BOT_TOKEN=${TEST_TAMAGOTCHI_BOT_TOKEN}
+ENV DB_USER_LOCAL=${DB_USER_LOCAL}
+ENV DB_PASSWORD_LOCAL=${DB_PASSWORD_LOCAL}
 COPY ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-DtelegramBot.username=${TEST_TAMAGOTCHI_BOT_USERNAME}","-DtelegramBot.token=${TEST_TAMAGOTCHI_BOT_TOKEN}","-jar","/app.jar"]
+ENTRYPOINT ["java","-Dspring.datasource.password=${DB_PASSWORD_LOCAL}","-DtelegramBot.username=${TEST_TAMAGOTCHI_BOT_USERNAME}","-DtelegramBot.token=${TEST_TAMAGOTCHI_BOT_TOKEN}","-Dspring.datasource.username=${DB_USER_LOCAL}","-jar","/app.jar"]
