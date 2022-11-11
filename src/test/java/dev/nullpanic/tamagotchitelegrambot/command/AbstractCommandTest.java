@@ -1,6 +1,7 @@
 package dev.nullpanic.tamagotchitelegrambot.command;
 
 import dev.nullpanic.tamagotchitelegrambot.bot.TamagotchiTelegramBot;
+import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
@@ -16,6 +17,7 @@ abstract class AbstractCommandTest {
     protected TamagotchiTelegramBot tamagotchiTelegramBot = Mockito.mock(TamagotchiTelegramBot.class);
     protected SendBotMessageService sendBotMessageService = new SendBotMessageServiceImpl(tamagotchiTelegramBot);
     protected TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
+    protected PetService petService = Mockito.mock(PetService.class);
 
     abstract String getCommandName();
 

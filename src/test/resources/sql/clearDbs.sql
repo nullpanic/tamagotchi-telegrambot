@@ -1,1 +1,2 @@
 DELETE FROM tg_user;
+DELETE FROM pets;

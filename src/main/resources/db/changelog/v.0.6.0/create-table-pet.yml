@@ -1,0 +1,57 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: create-table-pet
+      author: nullpanic
+      changes:
+        - createTable:
+            tableName: pets
+            columns:
+              - column:
+                  name: pet_id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: chat_id
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: active
+                  type: BOOLEAN
+              - column:
+                  name: name
+                  type: varchar(32)
+              - column:
+                  name: hp
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: hungriness
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: tiredness
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: cleanliness
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+              - column:
+                  name: happiness
+                  type: SMALLINT
+                  constraints:
+                    nullable: false
+        - createSequence:
+            sequenceName: PETS_SEQ
+            incrementBy: 1
+            startValue: 1
+            minValue: 1
+            maxValue: 9223372036854775807

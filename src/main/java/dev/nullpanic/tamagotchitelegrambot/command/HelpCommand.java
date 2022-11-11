@@ -3,8 +3,7 @@ package dev.nullpanic.tamagotchitelegrambot.command;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-import static dev.nullpanic.tamagotchitelegrambot.command.CommandName.START;
-import static dev.nullpanic.tamagotchitelegrambot.command.CommandName.STOP;
+import static dev.nullpanic.tamagotchitelegrambot.command.CommandName.*;
 
 public class HelpCommand implements Command {
 
@@ -15,9 +14,12 @@ public class HelpCommand implements Command {
                                 
                     <b>Начать\\закончить работу с ботом</b>
                     %s - начать работу бота
-                    %s - закончить работу бота (Состояние всех питомцев будет сохранено)""",
+                    %s - закончить работу бота (Состояние всех питомцев будет сохранено)
+                    <b>Питомцы</b>
+                    %s name - создать питомца""",
             START.getCommandName(),
-            STOP.getCommandName());
+            STOP.getCommandName(),
+            CREATE.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

@@ -1,6 +1,7 @@
 package dev.nullpanic.tamagotchitelegrambot.bot;
 
 import dev.nullpanic.tamagotchitelegrambot.command.CommandContainer;
+import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +9,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.objects.Update;
-
 
 @Component
 public class TamagotchiTelegramBot extends TelegramLongPollingBot {
@@ -22,8 +22,11 @@ public class TamagotchiTelegramBot extends TelegramLongPollingBot {
     private final CommandContainer commandContainer;
 
     @Autowired
-    public TamagotchiTelegramBot(TelegramUserService telegramUserService) {
-        this.commandContainer = new CommandContainer(new SendBotMessageServiceImpl(this), telegramUserService);
+    public TamagotchiTelegramBot(TelegramUserService telegramUserService, PetService petService) {
+        this.commandContainer = new CommandContainer(
+                new SendBotMessageServiceImpl(this),
+                telegramUserService,
+                petService);
     }
 
     @Override

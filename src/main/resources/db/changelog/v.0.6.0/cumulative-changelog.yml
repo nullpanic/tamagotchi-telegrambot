@@ -1,0 +1,15 @@
+databaseChangeLog:
+
+  - changeSet:
+      id: add-tag-0.6.0
+      author: nullpanic
+      changes:
+        - tagDatabase:
+            tag: v.0.6.0
+
+  - include:
+      file: create-table-pet.yml
+      relativeToChangeLogFile: true
+  - include:
+      file: create-table-tg_user.yml
+      relativeToChangeLogFile: true
