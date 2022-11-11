@@ -9,7 +9,7 @@ public class StopCommand implements Command {
     private final SendBotMessageService sendBotMessageService;
     private final TelegramUserService telegramUserService;
 
-    public final static String STOP_MESSAGE = "Игровой процесс остановлен, все питомцы замороженны в инкубаторах!";
+    public final static String STOP_MESSAGE = "Увидимся! Не забывай навещать меня и своих питомцев (:";
 
     public StopCommand(SendBotMessageService sendBotMessageService, TelegramUserService telegramUserService) {
         this.sendBotMessageService = sendBotMessageService;

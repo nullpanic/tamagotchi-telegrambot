@@ -1,5 +1,6 @@
 package dev.nullpanic.tamagotchitelegrambot.command;
 
+import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
 import org.junit.jupiter.api.Assertions;
@@ -19,7 +20,8 @@ class CommandContainerTest {
     public void init() {
         SendBotMessageService sendBotMessageService = Mockito.mock(SendBotMessageService.class);
         TelegramUserService telegramUserService = Mockito.mock(TelegramUserService.class);
-        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService);
+        PetService petService = Mockito.mock(PetService.class);
+        commandContainer = new CommandContainer(sendBotMessageService, telegramUserService, petService);
     }
 
     @Test

@@ -1,8 +1,13 @@
 # Release Notes
+## 0.6.0-SNAPSHOT
+
+* Added CreatePet command 
+* Added Pet repository level 
+* Added new liquibase changelogs
 
 ## 0.5.0-SNAPSHOT
 
-* Added Stat command 
+* Added Stat command and its implementation
 
 ## 0.4.0-SNAPSHOT
 

@@ -1,0 +1,4 @@
+INSERT INTO pets VALUES (123456789, 1, true, 'Vasya', 100, 100, 100, 100, 100);
+INSERT INTO pets VALUES (123456788, 1, true, 'Snowball', 0, 100, 0, 100, 0);
+INSERT INTO pets VALUES (123456787, 1, true, 'Yozef', 0, 100, 0, 100, 0);
+INSERT INTO pets VALUES (123456786, 1, true, 'Vasya', 100, 100, 100, 100, 100);
