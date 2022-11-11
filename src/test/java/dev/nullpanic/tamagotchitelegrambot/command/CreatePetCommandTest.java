@@ -7,12 +7,12 @@ class CreatePetCommandTest extends AbstractCommandTest {
 
     @Override
     String getCommandName() {
-        return CREATE.getCommandName();
+        return CREATE.getCommandName() + " Charlie";
     }
 
     @Override
     String getCommandMessage() {
-        return String.format(CREATE_PET_MESSAGE, "Charlie");
+        return String.format(CREATE_PET_MESSAGE, "Charlie", 100, 100, 100, 100, 100);
     }
 
     @Override
