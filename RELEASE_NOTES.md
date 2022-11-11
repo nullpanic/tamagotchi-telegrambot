@@ -1,5 +1,9 @@
 # Release Notes
 
+## 0.5.0-SNAPSHOT
+
+* Added Stat command 
+
 ## 0.4.0-SNAPSHOT
 
 * Added repository layer

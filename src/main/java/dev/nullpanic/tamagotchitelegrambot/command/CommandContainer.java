@@ -15,6 +15,7 @@ public class CommandContainer {
                 .put(CommandName.START.getCommandName(), new StartCommand(sendBotMessageService, telegramUserService))
                 .put(CommandName.STOP.getCommandName(), new StopCommand(sendBotMessageService, telegramUserService))
                 .put(CommandName.HELP.getCommandName(), new HelpCommand(sendBotMessageService))
+                .put(CommandName.STAT.getCommandName(), new StatCommand(sendBotMessageService,telegramUserService))
                 .build();
 
         unknownCommand = new UnknownCommand(sendBotMessageService);

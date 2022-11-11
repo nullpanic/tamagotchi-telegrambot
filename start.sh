@@ -10,7 +10,7 @@ export DB_USER_LOCAL=$3
 export DB_PASSWORD_LOCAL=$4
 
 # Prepare Jar
-mvn clean package -DskipTests
+mvn clean package
 
 # Ensure, that docker-compose stopped
 docker-compose stop
