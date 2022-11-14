@@ -41,4 +41,11 @@ public class Pet {
     @Column(name = "happiness")
     private int happiness;
 
+    public void setDefaultStats() {
+        this.setHp(100);
+        this.setCleanliness(100);
+        this.setHappiness(100);
+        this.setHungriness(100);
+        this.setTiredness(100);
+    }
 }

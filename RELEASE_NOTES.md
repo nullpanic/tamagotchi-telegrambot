@@ -1,4 +1,9 @@
 # Release Notes
+## 0.7.0-SNAPSHOT
+
+* Added FeedPet command and its implementation 
+* CreatePet command refactored
+
 ## 0.6.0-SNAPSHOT
 
 * Added CreatePet command 
