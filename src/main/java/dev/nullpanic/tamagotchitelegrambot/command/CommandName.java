@@ -9,7 +9,8 @@ public enum CommandName {
     STOP("/stop"),
     HELP("/help"),
     STAT("/stat"),
-    CREATE("/create");
+    CREATE("/create"),
+    FEED("/feed");
 
     private final String commandName;
 

@@ -16,10 +16,12 @@ public class HelpCommand implements Command {
                     %s - начать работу бота
                     %s - закончить работу бота (Состояние всех питомцев будет сохранено)
                     <b>Питомцы</b>
-                    %s name - создать питомца""",
+                    %s name - создать питомца
+                    %s name - покормить питомца""",
             START.getCommandName(),
             STOP.getCommandName(),
-            CREATE.getCommandName());
+            CREATE.getCommandName(),
+            FEED.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

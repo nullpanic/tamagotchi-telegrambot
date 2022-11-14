@@ -33,6 +33,5 @@ class SendBotMessageServiceImplTest {
         sendBotMessageService.sendMessage(chatId, message);
 
         Mockito.verify(tamagotchiTelegramBot).execute(sendMessage);
-
     }
 }
