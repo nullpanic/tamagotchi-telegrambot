@@ -19,9 +19,9 @@ public class CreatePetCommand implements Command {
             Имя - %s
             Здоровье - %s
             Сытость - %s
-            Чистота - %s
+            Усталость - %s           
             Счастье - %s
-            Усталость - %s""";
+            Чистота - %s""";
 
     public static final String PET_NAME_IS_BLANK_MESSAGE = "Не указано имя питомца";
     public final static String PET_ALREADY_EXIST_MESSAGE = "Питомец с именем %s уже существует";
@@ -45,7 +45,7 @@ public class CreatePetCommand implements Command {
 
         String petName = telegramUpdateService.removeExtraSpaces(splitCommand[1]);
 
-        petService.findByNameAndChatId(petName, chatId).ifPresentOrElse(
+        petService.findByNameIgnoreCaseAndChatId(petName, chatId).ifPresentOrElse(
                 pet -> sendBotMessageService.sendMessage(chatId, String.format(PET_ALREADY_EXIST_MESSAGE, petName))
                 , () -> {
                     Pet pet = petService.createPet(chatId, petName);
@@ -59,8 +59,8 @@ public class CreatePetCommand implements Command {
                 pet.getName(),
                 pet.getHp(),
                 pet.getHungriness(),
-                pet.getCleanliness(),
+                pet.getTiredness(),
                 pet.getHappiness(),
-                pet.getTiredness()));
+                pet.getCleanliness()));
     }
 }

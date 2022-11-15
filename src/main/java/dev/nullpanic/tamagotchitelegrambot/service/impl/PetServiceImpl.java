@@ -1,10 +1,12 @@
-package dev.nullpanic.tamagotchitelegrambot.service;
+package dev.nullpanic.tamagotchitelegrambot.service.impl;
 
 import dev.nullpanic.tamagotchitelegrambot.persist.model.Pet;
 import dev.nullpanic.tamagotchitelegrambot.persist.repository.PetRepository;
+import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -46,7 +48,12 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Optional<Pet> findByNameAndChatId(String name, Long chatId) {
-        return petRepository.findByNameAndChatId(name, chatId);
+    public Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId) {
+        return petRepository.findByNameIgnoreCaseAndChatId(name, chatId);
+    }
+
+    @Override
+    public Optional<List<Pet>> findPetsByChatId(Long chatId) {
+        return petRepository.findPetsByChatId(chatId);
     }
 }

@@ -1,5 +1,6 @@
-package dev.nullpanic.tamagotchitelegrambot.service;
+package dev.nullpanic.tamagotchitelegrambot.service.impl;
 
+import dev.nullpanic.tamagotchitelegrambot.service.TelegramUpdateService;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.objects.Update;
 

@@ -4,7 +4,7 @@ import dev.nullpanic.tamagotchitelegrambot.persist.model.Pet;
 import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUpdateService;
-import dev.nullpanic.tamagotchitelegrambot.service.TelegramUpdateServiceImpl;
+import dev.nullpanic.tamagotchitelegrambot.service.impl.TelegramUpdateServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -74,7 +74,7 @@ public class FeedPetCommandTest {
 
         update.setMessage(message);
 
-        Mockito.when(petService.findByNameAndChatId(pet.getName(), pet.getChatId())).thenReturn(Optional.of(pet));
+        Mockito.when(petService.findByNameIgnoreCaseAndChatId(pet.getName(), pet.getChatId())).thenReturn(Optional.of(pet));
         Mockito.when(petService.savePet(pet)).thenReturn(pet);
         Mockito.doNothing().when(petService).feedPet(pet);
 

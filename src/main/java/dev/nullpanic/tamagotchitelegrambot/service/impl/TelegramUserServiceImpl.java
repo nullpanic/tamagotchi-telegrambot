@@ -1,7 +1,8 @@
-package dev.nullpanic.tamagotchitelegrambot.service;
+package dev.nullpanic.tamagotchitelegrambot.service.impl;
 
 import dev.nullpanic.tamagotchitelegrambot.persist.model.TelegramUser;
 import dev.nullpanic.tamagotchitelegrambot.persist.repository.TelegramUserRepository;
+import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

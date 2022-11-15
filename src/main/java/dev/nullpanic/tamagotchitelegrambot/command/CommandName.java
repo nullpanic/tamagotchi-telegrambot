@@ -10,7 +10,8 @@ public enum CommandName {
     HELP("/help"),
     STAT("/stat"),
     CREATE("/create"),
-    FEED("/feed");
+    FEED("/feed"),
+    GET_ALL_PETS("/get_all_pets");
 
     private final String commandName;
 
