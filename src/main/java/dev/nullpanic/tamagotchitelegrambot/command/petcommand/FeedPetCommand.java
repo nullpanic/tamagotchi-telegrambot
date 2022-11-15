@@ -42,13 +42,14 @@ public class FeedPetCommand implements Command {
             return;
         }
 
-        petService.findByNameAndChatId(petName, chatId).ifPresentOrElse(
-                pet -> {
-                    petService.feedPet(pet);
-                    petService.savePet(pet);
-                    sendBotMessageService.sendMessage(chatId, String.format(FEED_PET_MESSAGE, petName, pet.getHungriness()));
-                }, () -> sendPetNotFoundMessage(chatId, petName)
-        );
+        petService.findByNameIgnoreCaseAndChatId(petName, chatId)
+                .ifPresentOrElse(
+                        pet -> {
+                            petService.feedPet(pet);
+                            petService.savePet(pet);
+                            sendBotMessageService.sendMessage(chatId, String.format(FEED_PET_MESSAGE, petName, pet.getHungriness()));
+                        }, () -> sendPetNotFoundMessage(chatId, petName)
+                );
     }
 
     private void sendPetNameIsBlankMessage(Long chatId) {

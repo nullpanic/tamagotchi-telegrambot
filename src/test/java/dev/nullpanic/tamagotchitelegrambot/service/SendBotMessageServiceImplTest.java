@@ -1,6 +1,7 @@
 package dev.nullpanic.tamagotchitelegrambot.service;
 
 import dev.nullpanic.tamagotchitelegrambot.bot.TamagotchiTelegramBot;
+import dev.nullpanic.tamagotchitelegrambot.service.impl.SendBotMessageServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

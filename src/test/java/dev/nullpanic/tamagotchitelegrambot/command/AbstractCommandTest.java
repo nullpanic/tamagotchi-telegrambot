@@ -2,6 +2,7 @@ package dev.nullpanic.tamagotchitelegrambot.command;
 
 import dev.nullpanic.tamagotchitelegrambot.bot.TamagotchiTelegramBot;
 import dev.nullpanic.tamagotchitelegrambot.service.*;
+import dev.nullpanic.tamagotchitelegrambot.service.impl.SendBotMessageServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

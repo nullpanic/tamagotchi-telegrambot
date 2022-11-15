@@ -1,6 +1,7 @@
-package dev.nullpanic.tamagotchitelegrambot.service;
+package dev.nullpanic.tamagotchitelegrambot.service.impl;
 
 import dev.nullpanic.tamagotchitelegrambot.bot.TamagotchiTelegramBot;
+import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

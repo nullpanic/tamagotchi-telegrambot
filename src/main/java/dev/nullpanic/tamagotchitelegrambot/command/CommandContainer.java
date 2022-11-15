@@ -3,6 +3,7 @@ package dev.nullpanic.tamagotchitelegrambot.command;
 import com.google.common.collect.ImmutableMap;
 import dev.nullpanic.tamagotchitelegrambot.command.petcommand.CreatePetCommand;
 import dev.nullpanic.tamagotchitelegrambot.command.petcommand.FeedPetCommand;
+import dev.nullpanic.tamagotchitelegrambot.command.petcommand.GetAllPetsCommand;
 import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageService;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUpdateService;
@@ -27,6 +28,7 @@ public class CommandContainer {
                 .put(CommandName.STAT.getCommandName(), new StatCommand(sendBotMessageService, telegramUserService))
                 .put(CommandName.CREATE.getCommandName(), new CreatePetCommand(sendBotMessageService, petService, telegramUpdateService))
                 .put(CommandName.FEED.getCommandName(), new FeedPetCommand(sendBotMessageService, petService, telegramUpdateService))
+                .put(CommandName.GET_ALL_PETS.getCommandName(), new GetAllPetsCommand(sendBotMessageService, petService, telegramUpdateService))
                 .build();
 
         unknownCommand = new UnknownCommand(sendBotMessageService);

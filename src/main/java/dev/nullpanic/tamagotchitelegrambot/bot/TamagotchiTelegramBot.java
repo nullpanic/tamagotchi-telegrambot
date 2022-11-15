@@ -2,7 +2,7 @@ package dev.nullpanic.tamagotchitelegrambot.bot;
 
 import dev.nullpanic.tamagotchitelegrambot.command.CommandContainer;
 import dev.nullpanic.tamagotchitelegrambot.service.PetService;
-import dev.nullpanic.tamagotchitelegrambot.service.SendBotMessageServiceImpl;
+import dev.nullpanic.tamagotchitelegrambot.service.impl.SendBotMessageServiceImpl;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUpdateService;
 import dev.nullpanic.tamagotchitelegrambot.service.TelegramUserService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -9,6 +9,7 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@Builder
 @SequenceGenerator(name = "PETS_SEQ_GENERATOR", sequenceName = "PETS_SEQ", allocationSize = 1)
 @Table(name = "pets")
 public class Pet {
@@ -47,5 +48,16 @@ public class Pet {
         this.setHappiness(100);
         this.setHungriness(100);
         this.setTiredness(100);
+    }
+
+    public String getPetStatusString() {
+        return String.format(
+                "%s: здоровье - %s, сытость - %s, усталость - %s, счастье - %s, чистота -%s \n",
+                this.getName(),
+                this.getHp(),
+                this.getHungriness(),
+                this.getTiredness(),
+                this.getHappiness(),
+                this.getCleanliness());
     }
 }

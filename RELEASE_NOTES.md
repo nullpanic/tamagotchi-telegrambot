@@ -1,4 +1,8 @@
 # Release Notes
+## 0.8.0-SNAPSHOT
+
+* Added GetAllPets command and its implementation
+
 ## 0.7.0-SNAPSHOT
 
 * Added FeedPet command and its implementation 
