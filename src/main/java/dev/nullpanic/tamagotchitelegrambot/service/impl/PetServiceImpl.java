@@ -6,6 +6,7 @@ import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -28,7 +29,8 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Pet createPet(Long chatId, String petName) {
+    @Transactional
+    public Pet create(Long chatId, String petName) {
         Pet pet = new Pet();
         pet.setChatId(chatId);
         pet.setActive(true);
@@ -39,19 +41,25 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Pet savePet(Pet pet) {
+    @Transactional
+    public Pet save(Pet pet) {
         return petRepository.save(pet);
     }
 
     @Override
-    public void feedPet(Pet pet) {
+    public void feed(Pet pet) {
         int newHungriness = pet.getHungriness() + hungrinessIncrement;
 
         if (newHungriness > petMaxHp) {
-            newHungriness = 100;
+            newHungriness = petMaxHp;
         }
 
         pet.setHungriness(newHungriness);
+    }
+
+    @Override
+    public void disable(Pet pet) {
+        pet.setActive(false);
     }
 
     @Override
@@ -62,6 +70,11 @@ public class PetServiceImpl implements PetService {
     @Override
     public Optional<List<Pet>> findPetsByChatId(Long chatId) {
         return petRepository.findPetsByChatId(chatId);
+    }
+
+    @Override
+    public Optional<List<Pet>> findPetsByChatIdAndActive(Long chatId, boolean active) {
+        return petRepository.findPetsByChatIdAndActive(chatId, active);
     }
 
     @Override
@@ -78,4 +91,5 @@ public class PetServiceImpl implements PetService {
     public Optional<List<Pet>> findLowHungrinessPets() {
         return petRepository.findPetsByActiveAndHungrinessBeforeOrderByChatId(true, hungrinessThreshold);
     }
+
 }

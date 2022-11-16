@@ -58,7 +58,7 @@ class CreatePetCommandTest {
 
         Mockito.when(petService.findByNameIgnoreCaseAndChatId(pet.getName(), pet.getChatId()))
                 .thenReturn(Optional.empty());
-        Mockito.when(petService.createPet(pet.getChatId(), pet.getName()))
+        Mockito.when(petService.create(pet.getChatId(), pet.getName()))
                 .thenReturn(pet);
 
         String inputCommand = CREATE.getCommandName() + " " + pet.getName();

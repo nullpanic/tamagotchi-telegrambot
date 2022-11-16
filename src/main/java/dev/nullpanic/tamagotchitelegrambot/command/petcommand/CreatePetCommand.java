@@ -48,7 +48,7 @@ public class CreatePetCommand implements Command {
         petService.findByNameIgnoreCaseAndChatId(petName, chatId).ifPresentOrElse(
                 pet -> sendBotMessageService.sendMessage(chatId, String.format(PET_ALREADY_EXIST_MESSAGE, petName))
                 , () -> {
-                    Pet pet = petService.createPet(chatId, petName);
+                    Pet pet = petService.create(chatId, petName);
                     sendCreatePetMessage(chatId, pet);
                 }
         );

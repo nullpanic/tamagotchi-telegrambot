@@ -12,18 +12,21 @@ public class HelpCommand implements Command {
     public final static String HELP_MESSAGE = String.format("""
                     <b>Доступные команды</b>
                                 
-                    <b>Начать\\закончить работу с ботом</b>
-                    %s - начать работу бота
-                    %s - закончить работу бота (Состояние всех питомцев будет сохранено)
+                    <b>Общие</b>
+                    %s - список всех питомцев
+                    %s - заморозить всех питомцев
+                    %s - разморозить всех питомцев
+                                        
                     <b>Питомцы</b>
                     %s name - создать питомца
-                    %s name - покормить питомца
-                    %s - список всех питомцев""",
+                    %s name - заморозить питомца
+                    %s name - покормить питомца""",
+            GET_ALL_PETS.getCommandName(),
+            STOP_ALL.getCommandName(),
             START.getCommandName(),
-            STOP.getCommandName(),
             CREATE.getCommandName(),
-            FEED.getCommandName(),
-            GET_ALL_PETS.getCommandName());
+            STOP.getCommandName(),
+            FEED.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {
         this.sendBotMessageService = sendBotMessageService;

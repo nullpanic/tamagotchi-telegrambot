@@ -14,8 +14,6 @@ public class GetAllPetsCommand implements Command {
     private final TelegramUpdateService telegramUpdateService;
     public static final String PETS_NOT_FOUND_MESSAGE = "У вас нет ни одного питомца :(";
 
-
-    @Autowired
     public GetAllPetsCommand(SendBotMessageService sendBotMessageService, PetService petService, TelegramUpdateService telegramUpdateService) {
         this.sendBotMessageService = sendBotMessageService;
         this.petService = petService;
@@ -34,7 +32,7 @@ public class GetAllPetsCommand implements Command {
                     }
 
                     StringBuilder stringBuilder = new StringBuilder();
-                    pets.forEach(pet -> stringBuilder.append(pet.getPetStatusString()));
+                    pets.forEach(pet -> stringBuilder.append(pet.getStatusString()));
                     sendBotMessageService.sendMessage(chatId, stringBuilder.toString());
                 });
     }

@@ -7,15 +7,19 @@ import java.util.Optional;
 
 public interface PetService {
 
-    Pet createPet(Long chatId, String petName);
+    Pet create(Long chatId, String petName);
 
-    Pet savePet(Pet pet);
+    Pet save(Pet pet);
 
-    void feedPet(Pet pet);
+    void feed(Pet pet);
+
+    void disable(Pet pet);
 
     Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId);
 
     Optional<List<Pet>> findPetsByChatId(Long chatId);
+
+    Optional<List<Pet>> findPetsByChatIdAndActive(Long chatId, boolean active);
 
     Optional<List<Pet>> findPetsByActive(boolean active);
 
