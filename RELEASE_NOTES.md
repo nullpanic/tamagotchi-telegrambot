@@ -1,4 +1,9 @@
 # Release Notes
+## 0.9.0-SNAPSHOT
+
+* Added pet condition service and its implementation
+* Added pet condition job and its implementation
+
 ## 0.8.0-SNAPSHOT
 
 * Added GetAllPets command and its implementation
@@ -10,7 +15,7 @@
 
 ## 0.6.0-SNAPSHOT
 
-* Added CreatePet command 
+* Added CreatePet command and its implementation
 * Added Pet repository level 
 * Added new liquibase changelogs
 

@@ -4,6 +4,7 @@ import dev.nullpanic.tamagotchitelegrambot.persist.model.Pet;
 import dev.nullpanic.tamagotchitelegrambot.persist.repository.PetRepository;
 import dev.nullpanic.tamagotchitelegrambot.service.PetService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -11,9 +12,15 @@ import java.util.Optional;
 
 @Service
 public class PetServiceImpl implements PetService {
-
-    private final int HungrinessIncrement = 20;
     private final PetRepository petRepository;
+    @Value("${pet.threshold.hp}")
+    private int hpThreshold;
+    @Value("${pet.threshold.hungriness}")
+    private int hungrinessThreshold;
+    @Value("${pet.command.feed}")
+    private int hungrinessIncrement;
+    @Value("${pet.stats.maxHp}")
+    private int petMaxHp;
 
     @Autowired
     public PetServiceImpl(PetRepository petRepository) {
@@ -38,9 +45,9 @@ public class PetServiceImpl implements PetService {
 
     @Override
     public void feedPet(Pet pet) {
-        int newHungriness = pet.getHungriness() + HungrinessIncrement;
+        int newHungriness = pet.getHungriness() + hungrinessIncrement;
 
-        if (newHungriness > 100) {
+        if (newHungriness > petMaxHp) {
             newHungriness = 100;
         }
 
@@ -55,5 +62,20 @@ public class PetServiceImpl implements PetService {
     @Override
     public Optional<List<Pet>> findPetsByChatId(Long chatId) {
         return petRepository.findPetsByChatId(chatId);
+    }
+
+    @Override
+    public Optional<List<Pet>> findPetsByActive(boolean active) {
+        return petRepository.findPetsByActive(active);
+    }
+
+    @Override
+    public Optional<List<Pet>> findLowHpPets() {
+        return petRepository.findPetsByActiveAndHpBeforeOrderByChatId(true, hpThreshold);
+    }
+
+    @Override
+    public Optional<List<Pet>> findLowHungrinessPets() {
+        return petRepository.findPetsByActiveAndHungrinessBeforeOrderByChatId(true, hungrinessThreshold);
     }
 }

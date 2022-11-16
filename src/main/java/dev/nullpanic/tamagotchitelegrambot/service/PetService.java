@@ -16,4 +16,10 @@ public interface PetService {
     Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId);
 
     Optional<List<Pet>> findPetsByChatId(Long chatId);
+
+    Optional<List<Pet>> findPetsByActive(boolean active);
+
+    Optional<List<Pet>> findLowHpPets();
+
+    Optional<List<Pet>> findLowHungrinessPets();
 }
