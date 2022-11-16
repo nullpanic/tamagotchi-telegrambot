@@ -20,4 +20,5 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
 
     Optional<List<Pet>> findPetsByActiveAndHungrinessBeforeOrderByChatId(boolean active, int hungrinessThreshold);
 
+    Optional<List<Pet>> findPetsByChatIdAndActive(Long chatId, boolean active);
 }

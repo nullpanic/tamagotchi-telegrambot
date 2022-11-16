@@ -79,7 +79,7 @@ class GetAllPetsCommandTest {
         );
 
         StringBuilder stringBuilder = new StringBuilder();
-        pets.forEach(pet -> stringBuilder.append(pet.getPetStatusString()));
+        pets.forEach(pet -> stringBuilder.append(pet.getStatusString()));
 
         Mockito.when(message.getText()).thenReturn(GET_ALL_PETS.getCommandName());
         Mockito.when(petService.findPetsByChatId(CHAT_ID)).thenReturn(Optional.of(pets));

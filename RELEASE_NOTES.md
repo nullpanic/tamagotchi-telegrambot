@@ -1,4 +1,12 @@
 # Release Notes
+## 0.10.0-SNAPSHOT
+
+* Modify HelpMessage
+* Modify StopCommand to StopAllCommand
+* Modify README.md
+* Modify pet status message
+* Added StopPet command
+
 ## 0.9.0-SNAPSHOT
 
 * Added pet condition service and its implementation

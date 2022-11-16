@@ -12,7 +12,7 @@
 
     <groupId>dev.nullpanic</groupId>
     <artifactId>tamagotchi-telegrambot</artifactId>
-    <version>0.9.0-SNAPSHOT</version>
+    <version>0.10.0-SNAPSHOT</version>
     <name>tamagotchi-telegrambot</name>
     <description>Tamagotchi telegram bot</description>
 

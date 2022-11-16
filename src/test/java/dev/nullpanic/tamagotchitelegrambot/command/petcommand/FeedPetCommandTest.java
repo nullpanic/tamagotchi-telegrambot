@@ -75,8 +75,8 @@ public class FeedPetCommandTest {
         update.setMessage(message);
 
         Mockito.when(petService.findByNameIgnoreCaseAndChatId(pet.getName(), pet.getChatId())).thenReturn(Optional.of(pet));
-        Mockito.when(petService.savePet(pet)).thenReturn(pet);
-        Mockito.doNothing().when(petService).feedPet(pet);
+        Mockito.when(petService.save(pet)).thenReturn(pet);
+        Mockito.doNothing().when(petService).feed(pet);
 
         FeedPetCommand feedPetCommand = new FeedPetCommand(sendBotMessageService, petService, telegramUpdateService);
         feedPetCommand.execute(update);
