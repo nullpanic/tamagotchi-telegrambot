@@ -1,6 +1,6 @@
 ## tamagotchi-telegrambot
 
-## Current version: 
+## Current version: 0.9.0-SNAPSHOT 
 
 ### Available commands:
 
