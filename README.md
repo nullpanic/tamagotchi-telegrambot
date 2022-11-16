@@ -32,3 +32,13 @@ Required software:
 >Zsh example: `$ bash start.sh ${bot_username} ${bot_token} ${db_user} ${db_password}`
 
 ### That's all.
+
+### Technology stack
+------------------------ 
+- Maven 
+- Java 18
+- Spring boot \ Spring data \ Telegram spring boot starter
+- PostgreSQL \ Liquibase \ Hibernate
+- Docker
+- JUnit 5 \ Mockito \ Jacoco \ lombok
+- Github Actions
