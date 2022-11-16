@@ -33,12 +33,13 @@ Required software:
 
 ### That's all.
 
-### Technology stack
+## Technology stack
 ------------------------ 
 - Maven 
 - Java 18
-- Spring boot \ Spring data \ Telegram spring boot starter
+- Spring boot \ Spring data
 - PostgreSQL \ Liquibase \ Hibernate
 - Docker
 - JUnit 5 \ Mockito \ Jacoco \ lombok
-- Github Actions
+- Telegrambot spring boot starter
+- Github Actions CI/CD
