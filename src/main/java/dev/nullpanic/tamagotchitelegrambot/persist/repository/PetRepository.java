@@ -13,4 +13,11 @@ public interface PetRepository extends JpaRepository<Pet, Long> {
     Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId);
 
     Optional<List<Pet>> findPetsByChatId(Long chatId);
+
+    Optional<List<Pet>> findPetsByActive(boolean active);
+
+    Optional<List<Pet>> findPetsByActiveAndHpBeforeOrderByChatId(boolean active, int hpThreshold);
+
+    Optional<List<Pet>> findPetsByActiveAndHungrinessBeforeOrderByChatId(boolean active, int hungrinessThreshold);
+
 }
