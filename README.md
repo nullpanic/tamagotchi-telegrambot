@@ -33,8 +33,7 @@ Required software:
 
 ### That's all.
 
-## Technology stack
------------------------- 
+## Technology stack:
 - Maven 
 - Java 18
 - Spring boot \ Spring data
