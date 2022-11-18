@@ -13,17 +13,9 @@ public interface PetService {
 
     void feed(Pet pet);
 
-    void disable(Pet pet);
-
     Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId);
 
     Optional<List<Pet>> findPetsByChatId(Long chatId);
 
-    Optional<List<Pet>> findPetsByChatIdAndActive(Long chatId, boolean active);
-
-    Optional<List<Pet>> findPetsByActive(boolean active);
-
-    Optional<List<Pet>> findLowHpPets();
-
-    Optional<List<Pet>> findLowHungrinessPets();
+    Optional<List<Pet>> findLowHungrinessPets(int HungrinessThreshold);
 }

@@ -53,7 +53,6 @@ class CreatePetCommandTest {
         Pet pet = new Pet();
         pet.setName("NotExistingPet");
         pet.setChatId(CHAT_ID);
-        pet.setActive(true);
         pet.setDefaultStats();
 
         Mockito.when(petService.findByNameIgnoreCaseAndChatId(pet.getName(), pet.getChatId()))

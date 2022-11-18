@@ -21,10 +21,6 @@ public class Pet {
     @Column(name = "chat_id")
     private Long chatId;
 
-    @Getter
-    @Column(name = "active")
-    private boolean active;
-
     @Column(name = "name")
     private String name;
 
@@ -53,9 +49,8 @@ public class Pet {
 
     public String getStatusString() {
         return String.format(
-                "%s: Состояние - %s, Здоровье - %s, Сытость - %s, Усталость - %s, Счастье - %s, Чистота - %s \n",
+                "%s: Здоровье - %s, Сытость - %s, Усталость - %s, Счастье - %s, Чистота - %s \n",
                 this.getName(),
-                (this.isActive() ? "Активен" : "Не активен"),
                 this.getHp(),
                 this.getHungriness(),
                 this.getTiredness(),

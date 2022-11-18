@@ -6,13 +6,12 @@ import lombok.Getter;
 public enum CommandName {
 
     START("/start"),
-    STOP_ALL("/stop_all"),
+    STOP("/stop"),
     HELP("/help"),
     STAT("/stat"),
     CREATE("/create"),
     FEED("/feed"),
-    GET_ALL_PETS("/get_all_pets"),
-    STOP("/stop");
+    GET_ALL_PETS("/get_all_pets");
 
     private final String commandName;
 

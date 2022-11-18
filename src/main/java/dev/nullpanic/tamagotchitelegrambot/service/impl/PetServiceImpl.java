@@ -33,7 +33,6 @@ public class PetServiceImpl implements PetService {
     public Pet create(Long chatId, String petName) {
         Pet pet = new Pet();
         pet.setChatId(chatId);
-        pet.setActive(true);
         pet.setName(petName);
         pet.setDefaultStats();
 
@@ -58,11 +57,6 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public void disable(Pet pet) {
-        pet.setActive(false);
-    }
-
-    @Override
     public Optional<Pet> findByNameIgnoreCaseAndChatId(String name, Long chatId) {
         return petRepository.findByNameIgnoreCaseAndChatId(name, chatId);
     }
@@ -73,23 +67,8 @@ public class PetServiceImpl implements PetService {
     }
 
     @Override
-    public Optional<List<Pet>> findPetsByChatIdAndActive(Long chatId, boolean active) {
-        return petRepository.findPetsByChatIdAndActive(chatId, active);
-    }
-
-    @Override
-    public Optional<List<Pet>> findPetsByActive(boolean active) {
-        return petRepository.findPetsByActive(active);
-    }
-
-    @Override
-    public Optional<List<Pet>> findLowHpPets() {
-        return petRepository.findPetsByActiveAndHpBeforeOrderByChatId(true, hpThreshold);
-    }
-
-    @Override
-    public Optional<List<Pet>> findLowHungrinessPets() {
-        return petRepository.findPetsByActiveAndHungrinessBeforeOrderByChatId(true, hungrinessThreshold);
+    public Optional<List<Pet>> findLowHungrinessPets(int HungrinessThreshold) {
+        return petRepository.findAllActiveHungrinessPets(hungrinessThreshold);
     }
 
 }
