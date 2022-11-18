@@ -19,9 +19,6 @@ databaseChangeLog:
                   constraints:
                     nullable: false
               - column:
-                  name: active
-                  type: BOOLEAN
-              - column:
                   name: name
                   type: varchar(32)
               - column:

@@ -24,7 +24,6 @@ public class PetRepositoryIT {
     public void testCreatePet_WhenPetFilled_ShouldSavePet() {
         Pet pet = new Pet();
         pet.setChatId(1L);
-        pet.setActive(true);
         pet.setName("Charlie");
         pet.setHp(100);
         pet.setCleanliness(100);

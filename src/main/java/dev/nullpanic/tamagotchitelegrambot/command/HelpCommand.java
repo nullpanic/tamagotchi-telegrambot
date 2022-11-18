@@ -13,19 +13,17 @@ public class HelpCommand implements Command {
                     <b>Доступные команды</b>
                                 
                     <b>Общие</b>
+                    %s - запустить бота
+                    %s - остановить бота
                     %s - список всех питомцев
-                    %s - заморозить всех питомцев
-                    %s - разморозить всех питомцев
                                         
-                    <b>Питомцы</b>
+                    <b>Действия с питомцами</b>
                     %s name - создать питомца
-                    %s name - заморозить питомца
                     %s name - покормить питомца""",
-            GET_ALL_PETS.getCommandName(),
-            STOP_ALL.getCommandName(),
             START.getCommandName(),
-            CREATE.getCommandName(),
             STOP.getCommandName(),
+            GET_ALL_PETS.getCommandName(),
+            CREATE.getCommandName(),
             FEED.getCommandName());
 
     public HelpCommand(SendBotMessageService sendBotMessageService) {

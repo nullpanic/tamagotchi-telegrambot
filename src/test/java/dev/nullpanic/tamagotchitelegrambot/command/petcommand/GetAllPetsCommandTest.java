@@ -58,7 +58,6 @@ class GetAllPetsCommandTest {
                         .petId(1L)
                         .name("Charlie")
                         .chatId(CHAT_ID)
-                        .active(true)
                         .build()
         );
         pets.add(
@@ -66,7 +65,6 @@ class GetAllPetsCommandTest {
                         .petId(2L)
                         .name("Sad pet")
                         .chatId(CHAT_ID)
-                        .active(true)
                         .build()
         );
         pets.add(
@@ -74,7 +72,6 @@ class GetAllPetsCommandTest {
                         .petId(3L)
                         .name("   Sad       pet ")
                         .chatId(CHAT_ID)
-                        .active(true)
                         .build()
         );
 
